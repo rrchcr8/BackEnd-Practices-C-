@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FibonacciConsole
 {
@@ -6,23 +7,28 @@ namespace FibonacciConsole
     {
         static void Main(string[] args)
         {
-            int result = Fibonacci(5);
-            Console.WriteLine(result);
-            Console.ReadKey(true);
-        }
-        static int Fibonacci(int n)
-        {
-            int n1 = 0;
-            int n2 = 1;
-            int sum = 0;
-
-            for (int i = 2; i < n; i++)
+            var result = Fibonacci(5);
+            foreach (int number in result)
             {
-                sum = n1 + n2;
-                n1 = n2;
-                n2 = sum;
+                Console.WriteLine(number);
             }
-            return n == 0 ? n1 : n2;
+
+
+        }
+        static List<int> Fibonacci(int n)
+        {
+
+            List<int> result = new() { 0, 1 };
+
+            while (result.Count < n)
+            {
+                int n1 = result[^1];
+                int n2 = result[^2];
+
+                result.Add(n1 + n2);
+            }
+
+            return result;
         }
     }
 }
