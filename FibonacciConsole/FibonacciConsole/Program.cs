@@ -17,13 +17,14 @@ namespace FibonacciConsole
         }
         static List<int> Fibonacci(int n)
         {
-
-            List<int> result = new() { 0, 1 };
+            int n1 = 0;
+            int n2 = 1;
+            List<int> result = new() { n1, n2 };
 
             while (result.Count < n)
             {
-                int n1 = result[^1];
-                int n2 = result[^2];
+                n1 = result[^1];
+                n2 = result[^2];
 
                 result.Add(n1 + n2);
             }
