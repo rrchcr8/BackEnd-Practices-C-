@@ -1,12 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FindNextSquare
 {
-    class Kata
+    public class Kata
     {
-    }
+        public static long FindNextSquare(long num)
+        {
+            double root = Math.Sqrt(num);
+            if (root % 1 != 0)
+            {
+                return -1;
+            }
+            else {
+                return (long)Math.Pow((root + 1),2); ;
+            }
+            
+        }
+    
+        }
 }

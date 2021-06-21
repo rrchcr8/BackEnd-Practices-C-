@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindNextSquare", "FindNextSquare\FindNextSquare.csproj", "{42424DB4-7146-406E-B613-C5C9936FA583}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{F8056F36-F41B-403D-80FC-E3CF5A6BBCFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{42424DB4-7146-406E-B613-C5C9936FA583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42424DB4-7146-406E-B613-C5C9936FA583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42424DB4-7146-406E-B613-C5C9936FA583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8056F36-F41B-403D-80FC-E3CF5A6BBCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8056F36-F41B-403D-80FC-E3CF5A6BBCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8056F36-F41B-403D-80FC-E3CF5A6BBCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8056F36-F41B-403D-80FC-E3CF5A6BBCFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
