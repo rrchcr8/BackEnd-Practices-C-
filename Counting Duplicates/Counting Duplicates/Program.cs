@@ -6,7 +6,7 @@ namespace Counting_Duplicates
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Kata.DuplicateCount("aabbcde");
         }
     }
 }
