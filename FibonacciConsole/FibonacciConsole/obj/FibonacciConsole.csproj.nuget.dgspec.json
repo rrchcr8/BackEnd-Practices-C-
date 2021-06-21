@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj": {}
+    "D:\\BOOTCAMP\\Back End\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj": {
+    "D:\\BOOTCAMP\\Back End\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj",
+        "projectUniqueName": "D:\\BOOTCAMP\\Back End\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj",
         "projectName": "FibonacciConsole",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj",
+        "projectPath": "D:\\BOOTCAMP\\Back End\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\FibonacciConsole.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\obj\\",
+        "outputPath": "D:\\BOOTCAMP\\Back End\\BackEnd-Practices-C-\\FibonacciConsole\\FibonacciConsole\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
