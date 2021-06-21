@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FibonacciConsole"
   ],
-  "SelectedNode": "\\FibonacciConsole.sln",
+  "SelectedNode": "\\FibonacciConsole\\FibonacciConsole.sln",
   "PreviewInSolutionExplorer": false
 }
