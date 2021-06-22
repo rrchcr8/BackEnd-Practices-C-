@@ -18,27 +18,49 @@ namespace UniqueInOrder
             //e.MoveNext();
             //foreach (var element in iterable) { 
             //element
+            ////}
+            //List<T> result = new List<T>();
+            //var list= iterable.ToList();
+
+            //for (int i = 0; i < iterable.Count(); i++) {
+            //    if (i == 0) {
+            //        result.Add(list[i]);
+            //    }
+            //    else if (i>0) {
+
+            //        if (!list[i].Equals(list[i-1]))
+            //        {
+            //            result.Add(list[i]);
+            //        }
+
+            //    }
+
             //}
-            ArrayList result = new();
-            var list= iterable.ToList();
 
-            for (int i = 0; i < iterable.Count(); i++) {
-                if (i == 0) {
-                    result.Add(list[i]);
+
+            //return result;
+
+            if (iterable == null)
+                return null;
+            if (!iterable.Any())
+                return Enumerable.Empty<T>();
+
+            List<T> output = new List<T>();
+            output.Add(iterable.First());
+            T lastItem = output[0];
+
+            foreach (T item in iterable)
+            {
+                if (!lastItem.Equals(item))
+                {
+                    output.Add(item);
+                    lastItem = item;
                 }
-                else if (i>0) {
-
-                    if (!list[i].Equals(list[i]))
-                    {
-                        result.Add(list[i]);
-                    }
-
-                }
-
             }
-            
-            
-            return (IEnumerable<T>)result;
+
+            return output;
+
+
         }
     }
 }
