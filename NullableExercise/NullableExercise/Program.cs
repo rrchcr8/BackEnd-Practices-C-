@@ -24,6 +24,13 @@ namespace NullableExercise
             Console.WriteLine("x == nx: {0}", x == nx);
             Console.WriteLine("x != nx: {0}", x != nx);
 
+            nx = null;
+            Console.WriteLine("nx = {0}", nx ?? -1);
+            Console.WriteLine("nx = {0}", nx.GetValueOrDefault());
+            Console.WriteLine("nx = {0}", nx.GetValueOrDefault(-2));
+            
+            
+            
 
 
             //Console.WriteLine("nx has a value? {0}", nx.HasValue);
