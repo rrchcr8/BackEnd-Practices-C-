@@ -27,33 +27,33 @@ namespace ValueReferenceType
         }
     }
 
-    class DetailedInteger
+    struct DetailedInteger
     {
 
-        public DetailedInteger d;
         public int Number;
-        List<string> Array = new List<string>();
+        public List<string> Arr;
         
 
         public DetailedInteger(int Number)
         {
-            this.d.Number = Number;
+            this.Number = Number;
+            Arr = new List<string>();
                        
             
         }
 
         internal void AddDetail(string v)
         {
-            Array.Add(v);
+            Arr.Add(v);
         }
 
         public override string ToString() {
-            //return Number.GetHashCode() + " [" + String.Join(", ", Array) + "]"+"gato";
-            if (nameof(d).Equals("n1"))
-            {
-                return d.Number + " [" + String.Join(", ", Array) + "]";
-            }
-            else { return Number + " [" + String.Join(", ", Array) + "]"; }
+            return Number + " [" + String.Join(", ", Arr) + "]";
+            //if (nameof(d).Equals("n1"))
+            //{
+            //    return d.Number + " [" + String.Join(", ", Arr) + "]";
+            //}
+            //else { return Number + " [" + String.Join(", ", Arr) + "]"; }
         }
 
 
