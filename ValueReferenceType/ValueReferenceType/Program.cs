@@ -40,8 +40,9 @@ namespace ValueReferenceType
 
         public override string ToString() {
             string n3 = Number.ToString();
-            return String.Join(n3, Array);
-                }
+            return n3+" ["+String.Join(", ", Array) + "]";
+
+        }
 
 
     }
