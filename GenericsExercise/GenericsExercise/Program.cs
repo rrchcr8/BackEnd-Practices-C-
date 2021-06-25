@@ -8,7 +8,7 @@ namespace GenericsExercise
             T c = a;
             a = b;
             b = c;
-            }
+        }
         static void Main(string[] args)
         {
             int a, b;
@@ -29,6 +29,31 @@ namespace GenericsExercise
             Console.WriteLine("a = {0}, b = {1}", a, b);
             Console.WriteLine("c = {0}, c = {1}", c, d);
 
+            MyGenerics<PrivateClass> pi = new();
+            MyGenerics<string> sss = new();
+            MyGenerics<PublicClass> p2 = new();
         }
+
+
+        public class MyGenerics<T> where T : new()
+        {
+        }
+
+        public class PrivateClass{
+
+            private PrivateClass() { 
+            }
+
+            }
     }
+
+    public class PublicClass
+    {
+
+        public PublicClass()
+        {
+        }
+
+    }
+}
 }
