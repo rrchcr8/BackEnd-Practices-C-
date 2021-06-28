@@ -54,16 +54,19 @@ namespace GenericsExercise
            */
 
             // The type argument must be a reference type and NOt nullable
-            
+
             GenericsClasstRestrain<string> sting2 = new();
             GenericsClasstRestrain<PublicClass> publi = new();
             GenericsClasstRestrain<PrivateClass> priv = new();
             GenericsClasstRestrain<String[]> priv333 = new();
-            GenericsClasstRestrain <struct> strctut = new();
-            GenericsClasstRestrain<int> intValue = new();
+            //GenericsClasstRestrain <struct> strctut = new();
+            //GenericsClasstRestrain<int> intValue = new();
 
 
-    }
+            Person.Unique.Name = "Pepe";
+            Console.WriteLine(Person.Unique.Name);
+
+        }
 
 
         // where T : new()
@@ -81,38 +84,54 @@ namespace GenericsExercise
         }
 
 #nullable enable
-    public class PublicClass
-    {
+        public class PublicClass
+        {
 
-        public PublicClass()
+            public PublicClass()
+            {
+            }
+
+        }
+
+        /*
+        where T : struct
+        */
+
+        public class GenericsStructRestrains<T> where T : struct
         {
         }
 
+        struct StrucClass
+        {
+
+        }
+
+        /*
+        where T : class
+        */
+
+        public class GenericsClasstRestrain<T> where T : class
+        {
+        }
+
+        public class UniquePerson<T>
+        {
+            public static T Unique
+            {
+                get; set;
+                //public UniquePerson(){
+                // Unique= new();
+                //}
+            }
+
+            public class Person : UniquePerson<Person>
+            {
+                public string name;
+
+
+            }
+
+        }
     }
-
-     /*
-     where T : struct
-     */
-
-    public class GenericsStructRestrains<T> where T : struct
-    {
-    }
-
-    struct StrucClass
-    {
-
-    }
-
-    /*
-    where T : class
-    */
-
-    public class GenericsClasstRestrain<T> where T : class
-    {
-    }
-
-    
-
-
 }
 
