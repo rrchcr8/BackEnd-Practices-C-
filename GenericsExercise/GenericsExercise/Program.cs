@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace GenericsExercise
 {
     class Program
@@ -30,13 +29,16 @@ namespace GenericsExercise
             Console.WriteLine("a = {0}, b = {1}", a, b);
             Console.WriteLine("c = {0}, c = {1}", c, d);
 
-            // where T : new()	The type argument must have a public parameterless constructor
-
+            /*
+             where T : new()	The type argument must have a public parameterless constructor
+            */
             MyGenerics<PrivateClass> pi = new();
             MyGenerics<string> sss = new();
             MyGenerics<PublicClass> p2 = new();
 
-            // where T : struct
+            /*
+             where T : struct
+            */
 
             // all this tipe are non nullaBLE TYPES
             GenericsStructRestrains<StrucClass> qw = new();
@@ -44,12 +46,24 @@ namespace GenericsExercise
             GenericsStructRestrains<double> qw1233 = new();
 
             //must be a non nullable type
-            GenericsStructRestrains<String> qw2 = new();
+            GenericsStructRestrains<string> qw2 = new();
             GenericsStructRestrains<PublicClass> qw3 = new();
 
+            /*
+            where T : class
+           */
+
+            // The type argument must be a reference type and NOt nullable
+            
+            GenericsClasstRestrain<string> sting2 = new();
+            GenericsClasstRestrain<PublicClass> publi = new();
+            GenericsClasstRestrain<PrivateClass> priv = new();
+            GenericsClasstRestrain<String[]> priv333 = new();
+            GenericsClasstRestrain <struct> strctut = new();
+            GenericsClasstRestrain<int> intValue = new();
 
 
-        }
+    }
 
 
         // where T : new()
@@ -65,8 +79,8 @@ namespace GenericsExercise
             }
 
         }
-    }
 
+#nullable enable
     public class PublicClass
     {
 
@@ -76,12 +90,28 @@ namespace GenericsExercise
 
     }
 
-    public class GenericsStructRestrains<T> where T : struct { 
+     /*
+     where T : struct
+     */
+
+    public class GenericsStructRestrains<T> where T : struct
+    {
     }
 
-    struct StrucClass { 
-    
+    struct StrucClass
+    {
+
     }
+
+    /*
+    where T : class
+    */
+
+    public class GenericsClasstRestrain<T> where T : class
+    {
+    }
+
+    
 
 
 }
