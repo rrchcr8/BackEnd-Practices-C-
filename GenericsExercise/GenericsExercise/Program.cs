@@ -122,7 +122,7 @@ namespace GenericsExercise
                 //public UniquePerson(){
                 // Unique= new();
                 //}
-            }
+            }   }
 
             public class Person : UniquePerson<Person>
             {
@@ -133,5 +133,5 @@ namespace GenericsExercise
 
         }
     }
-}
+
 
