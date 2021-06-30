@@ -14,7 +14,7 @@ namespace AnonymusType
             var obj = new { Name = "", EmailID =""};
             obj = Cast(obj, anonymusData);
             Console.WriteLine(String.Format("{0} {1}", obj.Name, obj.EmailID));
-            Console.WriteLine(String.Format("{0} {1}", anonymusData.Name, anonymus.EmailID));
+            //Console.WriteLine(String.Format("{0} {1}", anonymusData.Name, anonymus.EmailID));
 
 
             var v = new { Amount = 108, Message = "Hello" };
