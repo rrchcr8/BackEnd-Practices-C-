@@ -2,9 +2,10 @@
 
 namespace DelegatesExercise
 {
+   
     class Program
     {
-        private delegate int MyDelegate(string input);
+        
 
 
         static void Main(string[] args)
@@ -17,6 +18,7 @@ namespace DelegatesExercise
 
     public class Expresion
     {
+        public delegate int OpDelegate();
         private int first;
         private int second;
 
@@ -42,24 +44,38 @@ namespace DelegatesExercise
 
         public int ApplyOperator(Operation operation) 
         {
+            OpDelegate opDelegate;
             switch (operation)
             {
                 case Operation.Sum:
-                    return Sum();
+                    //return Sum();
+                    opDelegate = new OpDelegate(Sum);
+                    return opDelegate();
                 case Operation.Substract:
-                    return Substract();
-                case Operation.MUltiply:
-                    return Multiply();
-                
+                    opDelegate = new OpDelegate(Substract);
+                    return opDelegate();
+                //return Substract();
+                case Operation.Multiply:
+                    opDelegate = new OpDelegate(Multiply);
+                    return opDelegate();
+                //return Multiply();
+                default:
+                    return 0;
             }
-        }
-    }
 
-    public class Operation
-    {
+        }
+
        
 
     }
+    public enum Operation
+    {
+        Sum,
+        Substract,
+        Multiply
+
+    }
+
 
 
 }
