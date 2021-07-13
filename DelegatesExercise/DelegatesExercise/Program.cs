@@ -12,7 +12,9 @@ namespace DelegatesExercise
         {
             Expresion expresion = new(20, 10);
             var result = expresion.ApplyOperator(Operation.Sum);
-            Console.WriteLine($"Resut: {result}");
+            Console.WriteLine($"Resut adition: {result}");
+            var resultSubs = expresion.ApplyOperator(Operation.Substract);
+            Console.WriteLine($"Resut substraction: {resultSubs}");
         }
     }
 
@@ -65,7 +67,6 @@ namespace DelegatesExercise
 
         }
 
-       
 
     }
     public enum Operation
@@ -73,7 +74,6 @@ namespace DelegatesExercise
         Sum,
         Substract,
         Multiply
-
     }
 
 
