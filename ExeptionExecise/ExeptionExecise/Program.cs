@@ -19,7 +19,8 @@ namespace ExeptionExecise
 
             }
             catch (WebException ex)
-            w//hen ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.NotFound)
+            //webfilter
+            when ((ex.Response as HttpWebResponse)?.StatusCode == HttpStatusCode.NotFound)
             {
 
             }
