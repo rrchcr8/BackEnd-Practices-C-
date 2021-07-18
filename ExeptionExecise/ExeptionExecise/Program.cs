@@ -36,7 +36,7 @@ namespace ExeptionExecise
 
         public static void DoBilling(int clientID) { 
         
-        Client client   = _client
+        Client client   = _clientDataAccessObject.Get
 
         }
 
