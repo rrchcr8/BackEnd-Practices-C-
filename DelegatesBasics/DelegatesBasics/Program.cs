@@ -6,6 +6,7 @@ namespace DelegatesBasics
     {
         private delegate int MyDelegate(string input);
         public delegate void DisplayMessage(string input);
+        public delegate int MyDelegateWithReturn(string input);
 
 
         static void Main(string[] args)
@@ -29,22 +30,29 @@ namespace DelegatesBasics
 
             //Multicast
 
-            DisplayMessage displayMessage1 = ClassA.WriteInformation;
-            DisplayMessage displayMessage2 = ClassB.WriteInformation;
+            //DisplayMessage displayMessage1 = ClassA.WriteInformation;
+            //DisplayMessage displayMessage2 = ClassB.WriteInformation;
 
-            DisplayMessage delegateOperations = displayMessage1 + displayMessage2;
-            delegateOperations("HI :)");
+            //DisplayMessage delegateOperations = displayMessage1 + displayMessage2;
+            //delegateOperations("HI :)");
+
+            //DisplayMessage displayMessageWithLambda = (string input) => Console.WriteLine($" called from lambda {input}");
+            //delegateOperations += displayMessageWithLambda;
+            //delegateOperations("HI :'(");
+
+            //delegateOperations = delegateOperations - displayMessage2;
+            //delegateOperations("HI :)");
+
+            //delegateOperations -= displayMessage1;
+            //delegateOperations("HI :)");
+
+            MyDelegateWithReturn myDelegate1 = ClassA.GetSize;
+            MyDelegateWithReturn myDelegate2 = ClassB.GetSize;
+            MyDelegateWithReturn myDelegateWithReturn = myDelegate1 + myDelegate2;
             
-            DisplayMessage displayMessageWithLambda = (string input) => Console.WriteLine($" called from lambda {input}");
-            delegateOperations += displayMessageWithLambda;
-            delegateOperations("HI :'(");
 
-            delegateOperations = delegateOperations - displayMessage2;
-            delegateOperations("HI :)");
-
-            delegateOperations -= displayMessage1;
-            delegateOperations("HI :)");
-
+            //cuando hay un combinacion, solo returna el ultimo delegate
+            Console.WriteLine(myDelegateWithReturn("perro"));
 
 
 
@@ -74,6 +82,12 @@ namespace DelegatesBasics
             
             }
 
+            public static int GetSize(string input)
+            {
+             return input.Length;
+
+            }
+
         }
 
         class ClassB
@@ -84,6 +98,13 @@ namespace DelegatesBasics
                 Console.WriteLine($"called B class parameter {input}");
 
             }
+
+            public static int GetSize(string input)
+            {
+                return input.Length -4;
+
+            }
+
 
         }
 
