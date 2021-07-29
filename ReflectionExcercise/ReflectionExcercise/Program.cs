@@ -22,6 +22,12 @@ namespace ReflectionExcercise
                 // Using Reflection to get information of an Assembly:
                 Assembly info = typeof(int).Assembly;
                 Console.WriteLine(info);
+               
+                var inf2 = typeof(int);
+                Console.WriteLine(inf2);
+
+
+            //assembly
 
             Assembly assem = typeof(Example).Assembly;
 
@@ -44,12 +50,12 @@ namespace ReflectionExcercise
                 null, new Object[] { 2 }, null, null);
 
             // Make a late-bound call to an instance method of the object.
-            MethodInfo m = assem.GetType("Example").GetMethod("SampleMethod");
-            Object ret = m.Invoke(o, new Object[] { 42 });
-            Console.WriteLine("SampleMethod returned {0}.", ret);
+            //MethodInfo m = assem.GetType("Example").GetMethod("SampleMethod");
+            //Object ret = m.Invoke(o, new Object[] { 42 });
+            //Console.WriteLine("SampleMethod returned {0}.", ret);
 
-            Console.WriteLine("\nAssembly entry point:");
-            Console.WriteLine(assem.EntryPoint);
+            //Console.WriteLine("\nAssembly entry point:");
+            //Console.WriteLine(assem.EntryPoint);
 
         }
 
@@ -69,9 +75,9 @@ namespace ReflectionExcercise
         }
 
 
-        public class Example
+        public class Example  
         {
-            private int factor;
+            public int factor;
             public Example(int f)
             {
                 factor = f;
