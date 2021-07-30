@@ -8,18 +8,22 @@ namespace OutlookClient
 {
     public class SMTPServer
     {
-        private string domainName; 
+
         List<Account> accounts { get; set; }
 
-        public SMTPServer() {
-            
+        public SMTPServer()
+        {
+
             this.accounts = new() { };
         }
-        
-        private void AddAccount(Account account) {
+
+        public void AddAccount(Account account)
+        {
             var flag = false;
-            foreach (Account a in accounts) {
-                if (a.emailAdress.Equals(account.emailAdress)) {
+            foreach (Account a in accounts)
+            {
+                if (a.emailAdress.Equals(account.emailAdress))
+                {
                     flag = true;
                 }
             }
@@ -27,17 +31,18 @@ namespace OutlookClient
             {
                 Console.WriteLine("email address already exists!");
             }
-            else {
+            else
+            {
                 this.accounts.Add(account);
             }
-               
-              
-                  
+
+
         }
 
-        private void ProccessMail(Message message) { 
+        private void ProccessMail(Message message)
+        {
         }
 
-        
+
     }
 }

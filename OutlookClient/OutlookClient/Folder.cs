@@ -8,7 +8,17 @@ namespace OutlookClient
 {
     public class Folder
     {
+
         public String FolderName { get; set; }
-        public List<Message> content { get; set; }
+        public List<Message> Content { get; set; }
+
+        public Folder(string folderName)
+        {
+            FolderName = folderName;
+            this.Content = new List<Message>();
+        }
+
+        
+
     }
 }

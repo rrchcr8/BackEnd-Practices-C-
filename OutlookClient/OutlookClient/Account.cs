@@ -8,17 +8,17 @@ namespace OutlookClient
 {
     public class Account
     {
-        public int FirstName { get; set; }
-        public int SecondName { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
         public string Username { get; set; }
         public string emailAdress { get; set; }
-        public int password { get; set; }
+        public string password { get; set; }
 
-        public Account(int firstName, int secondName, string username, string emailAdress, int password)
+        public Account(string firstName, string secondName, string username, string emailAdress, string password)
         {
-            FirstName = firstName;
-            SecondName = secondName;
-            Username = username;
+            this.FirstName = firstName;
+            this.SecondName = secondName;
+            this.Username = username;
             this.emailAdress = emailAdress;
             this.password = password;
         }
