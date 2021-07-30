@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OutlookClient
 {
-    public class User
+    public class Folder
     {
-        public string Username { get; set; }
-        public string emailAdress { get; set; }
+        public String FolderName { get; set; }
+        public List<Message> content { get; set; }
     }
 }

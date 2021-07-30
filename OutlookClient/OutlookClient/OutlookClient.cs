@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace OutlookClient
 {
-    class OutlookClient
+    class OutlookClient: User
+
     {
+        public OutlookClient(string email, string username) {
+
+            this.emailAdress = emailAdress;
+            this.Username = username;
+
+        }
     }
 }
