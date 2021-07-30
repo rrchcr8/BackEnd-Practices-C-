@@ -21,8 +21,13 @@ namespace OutlookClient
 
             //create instance clients
 
-            OutlookClient CarlosOutlookClient = new OutlookClient(CarlosAccount,"127.0.0.1");
-            OutlookClient LauraOutlookClient = new OutlookClient(LauraAccount,"192.168.0.10");
+            OutlookClient CarlosOutlookClient = new OutlookClient(CarlosAccount,server);
+            OutlookClient LauraOutlookClient = new OutlookClient(LauraAccount, server);
+
+            Message message = CarlosOutlookClient.CreateMessage("lrod@jala.com","content test", "PRUEBA ONE");
+            CarlosOutlookClient.send(message);
+
+
 
             //creates a folder
             CarlosOutlookClient.CreateFolder("spam");

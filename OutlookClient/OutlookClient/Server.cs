@@ -8,13 +8,38 @@ namespace OutlookClient
 {
     public class SMTPServer
     {
+        public delegate void DelegateSend(Message message);
+        DelegateSend SendEmail;
 
-        List<Account> accounts { get; set; }
+        public List<Account> accounts { get; set; }
 
+      
         public SMTPServer()
         {
 
             this.accounts = new() { };
+        }
+
+        public void Suscribe(DelegateSend method)
+        {
+            SendEmail += method;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("----Suscribed---------");
+        }
+
+        public void Send(Message message) {
+
+            //BAD WORD RULES
+            if (message.body.Contains("CF Bolivar")) {
+                message.body = message.body.Replace("CF Bolivar", "*******");
+            }
+            
+            // Send message via delegate
+
+            SendEmail(message);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("----Message sent---------");
+
         }
 
         public void AddAccount(Account account)
@@ -39,9 +64,7 @@ namespace OutlookClient
 
         }
 
-        private void ProccessMail(Message message)
-        {
-        }
+   
 
 
     }
