@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace EntityFrameworkExercise
 {
@@ -6,7 +7,9 @@ namespace EntityFrameworkExercise
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using var db = new Northwind();
+            IQueryable<Category> categories = db.Categories.Include();
+
         }
     }
 }
