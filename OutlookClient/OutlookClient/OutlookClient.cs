@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OutlookClient
 {
-    class OutlookClient: User
+    class OutlookClient: Account
 
     {
         public OutlookClient(string email, string username) {

@@ -9,19 +9,35 @@ namespace OutlookClient
     public class SMTPServer
     {
         private string domainName; 
-        List<OutlookClient> outlookClients { get; set; }
+        List<Account> accounts { get; set; }
 
-        public SMTPServer(string domainName ) {
-            this.domainName = domainName;
-            this.outlookClients = new() { };
+        public SMTPServer() {
+            
+            this.accounts = new() { };
         }
         
-        private void SuscribeClient(OutlookClient outlookClient) {
-            this.outlookClients.Add(outlookClient);
-        
+        private void AddAccount(Account account) {
+            var flag = false;
+            foreach (Account a in accounts) {
+                if (a.emailAdress.Equals(account.emailAdress)) {
+                    flag = true;
+                }
+            }
+            if (flag)
+            {
+                Console.WriteLine("email address already exists!");
+            }
+            else {
+                this.accounts.Add(account);
+            }
+               
+              
+                  
         }
 
         private void ProccessMail(Message message) { 
         }
+
+        
     }
 }
