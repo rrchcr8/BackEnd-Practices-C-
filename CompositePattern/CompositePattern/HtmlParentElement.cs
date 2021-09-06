@@ -29,14 +29,14 @@ namespace CompositePattern
 
         public override void generateHtml()
         {
-            Console.WriteLine(startTag+"\n");
+            Console.WriteLine(startTag);
 
             foreach (var tag in childrenTags)
             {
                 tag.generateHtml();
 
             }
-            Console.WriteLine(endTag + "\n");
+            Console.WriteLine(endTag);
 
         }
 
