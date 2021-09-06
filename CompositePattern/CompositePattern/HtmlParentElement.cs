@@ -29,7 +29,15 @@ namespace CompositePattern
 
         public override void generateHtml()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(startTag+"\n");
+
+            foreach (var tag in childrenTags)
+            {
+                tag.generateHtml();
+
+            }
+            Console.WriteLine(endTag + "\n");
+
         }
 
         public override List<HtmlTag> getChildren()
