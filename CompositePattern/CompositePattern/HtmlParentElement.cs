@@ -12,17 +12,19 @@ namespace CompositePattern
         private string startTag;
         private string endTag;
         private string tagBody;
+        public List<HtmlTag> childrenTags;
 
 
         public HtmlParentElement(string tagName)
         {
 
             this.tagName = tagName;
+            this.childrenTags = new List<HtmlTag>();
         }
 
         public override void addChildtag(HtmlTag htmlTag)
         {
-            throw new NotImplementedException();
+            this.childrenTags.Add(htmlTag);
         }
 
         public override void generateHtml()
@@ -47,17 +49,17 @@ namespace CompositePattern
 
         public override void setEndTag(string EndTag)
         {
-            throw new NotImplementedException();
+            this.endTag = EndTag;
         }
 
         public override void setStartTag(string StartTag)
         {
-            throw new NotImplementedException();
+            this.startTag = StartTag;
         }
 
         public override void setTagBody(string body)
         {
-            throw new NotImplementedException();
+            this.tagBody = body;
         }
     }
 }
