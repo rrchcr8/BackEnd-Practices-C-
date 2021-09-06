@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompositePattern
 {
-    class HtmlElement : HtmlTag
+    class HtmlParentElement : HtmlTag
     {
         private string tagName;
         private string startTag;
@@ -14,7 +14,9 @@ namespace CompositePattern
         private string tagBody;
 
 
-        public HtmlElement(string tagName) {
+        public HtmlParentElement(string tagName)
+        {
+
             this.tagName = tagName;
         }
 
@@ -45,17 +47,17 @@ namespace CompositePattern
 
         public override void setEndTag(string EndTag)
         {
-            this.endTag=EndTag;
+            throw new NotImplementedException();
         }
 
         public override void setStartTag(string StartTag)
         {
-            this.startTag = StartTag;
+            throw new NotImplementedException();
         }
 
         public override void setTagBody(string body)
         {
-            this.tagBody = body;
+            throw new NotImplementedException();
         }
     }
 }
