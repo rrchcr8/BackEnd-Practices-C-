@@ -49,6 +49,14 @@ namespace MicroserviceProject.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{productId}")]
+        public ActionResult Delete(int productId)
+        {
+
+            Products = Products.Where(x => x.Id != productId).ToList();
+            return NoContent();
+        }
+
         private static List<Product> Products = new List<Product>
         {
             new Product
