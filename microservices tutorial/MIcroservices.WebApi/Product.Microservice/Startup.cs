@@ -10,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Product.Microservice.Context;
+using System.Reflection;
+using MediatR;
 
 namespace Product.Microservice
 {
@@ -31,6 +35,13 @@ namespace Product.Microservice
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Product.Microservice", Version = "v1" });
             });
+
+            services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+            b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<IApplicationContext, ApplicationContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
