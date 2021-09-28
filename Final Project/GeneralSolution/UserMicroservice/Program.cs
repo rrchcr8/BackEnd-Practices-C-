@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gateway.WebApi
+namespace UserMicroservice
 {
     public class Program
     {
@@ -21,8 +21,6 @@ namespace Gateway.WebApi
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureAppConfiguration((hostingContext, config) => {
-                    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath).AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
                 });
     }
 }
