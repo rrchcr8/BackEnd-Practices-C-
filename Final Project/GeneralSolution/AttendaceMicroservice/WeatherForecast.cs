@@ -1,6 +1,6 @@
 using System;
 
-namespace UserMicroservice
+namespace AttendaceMicroservice
 {
     public class WeatherForecast
     {

@@ -1,22 +1,15 @@
-using MediatR;
+using GreenPipes;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using UserMicroservice.Repository.Context;
+using StatsMicroServices.Consumer;
 
-namespace UserMicroservice
+namespace StatsMicroServices
 {
     public class Startup
     {
@@ -30,18 +23,32 @@ namespace UserMicroservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<AttendanceConsumer>();
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cur =>
+                {
+                    cur.UseHealthCheck(provider);
+                    cur.Host(new Uri("rabbitmq://localhost"), h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+                    cur.ReceiveEndpoint("attendanceQueue", oq =>
+                    {
+                        oq.PrefetchCount = 20;
+                        oq.UseMessageRetry(r => r.Interval(2, 100));
+                        oq.ConfigureConsumer<AttendanceConsumer>(provider);
+                    });
+                }));
+            });
+            services.AddMassTransitHostedService();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UserMicroservice", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "StatsMicroServices", Version = "v1" });
             });
-            services.AddDbContext<ApplicationContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("DefaultConnection"),
-                   b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddScoped<IApplicationContext, ApplicationContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +58,7 @@ namespace UserMicroservice
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UserMicroservice v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StatsMicroServices v1"));
             }
 
             app.UseHttpsRedirection();
